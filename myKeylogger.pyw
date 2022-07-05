@@ -11,7 +11,7 @@ def on_press(key):
     keys.append(key)
     count += 1
 
-    print("{0} pressed".format(key))
+    #print("{0} pressed".format(key))
 
     if count >= 20 or str(key) == "Key.enter":
         count = 0
